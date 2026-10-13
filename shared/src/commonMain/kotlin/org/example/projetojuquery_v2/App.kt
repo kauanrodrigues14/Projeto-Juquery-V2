@@ -32,9 +32,9 @@ fun App() {
                   Text(text = "Hello World");
                   var buttons by remember { mutableStateOf(0) }
                   TextField(
-                      value = buttons.toString(),
-                      onValueChange = { buttons = it.toIntOrNull() ?: 0 },
-                      modifier = Modifier.fillMaxWidth()
+                        value = buttons.toString(),
+                        onValueChange = { buttons = it.toIntOrNull() ?: 1 },
+                        modifier = Modifier.fillMaxWidth( )
                   )
               }
           }
