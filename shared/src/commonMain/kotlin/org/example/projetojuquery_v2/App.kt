@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +31,11 @@ fun App() {
               BottomAppBar {
                   Text(text = "Hello World");
                   var buttons by remember { mutableStateOf(0) }
+                  TextField(
+                      value = buttons.toString(),
+                      onValueChange = { buttons = it.toIntOrNull() ?: 0 },
+                      modifier = Modifier.fillMaxWidth()
+                  )
               }
           }
 
