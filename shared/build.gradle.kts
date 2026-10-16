@@ -39,11 +39,26 @@ kotlin {
         }
     }
 
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+            }
+        }
+        binaries.executable()
+    }
+
     sourceSets {
+        wasmJsMain.dependencies {
+            // Continua vazio: O WebAssembly herda automaticamente tudo o que está no commonMain.
+        }
+
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.uiTooling)
         }
+
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
@@ -54,6 +69,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
         }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
