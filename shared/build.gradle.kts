@@ -59,7 +59,11 @@ kotlin {
             implementation(libs.compose.uiTooling)
         }
 
+
         commonMain.dependencies {
+
+            implementation("org.jetbrains.compose.material:material-icons-extended:1.7.3")
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.2")
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation(kotlin("stdlib-common"))
             implementation(libs.compose.runtime)
